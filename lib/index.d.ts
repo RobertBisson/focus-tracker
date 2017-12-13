@@ -1,2 +1,2 @@
 import FocusTracker from "./FocusTracker";
-export { FocusTracker };
+export default FocusTracker;
