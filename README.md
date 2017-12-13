@@ -5,23 +5,33 @@ Track focus events on fields, the currently active field and call blur functions
 React/RN implementation:
 
 Focus Tracker is implemented as a Singleton.
-import FocusTracker from "focus-tracker";
 
+# Example React Native
 
-componentDidMount(){
-  FocusTracker.registerListener({
-    lostFocus: this.blur,
-    hasFocus: false,
-    reference: this._refID //Unique ID
-  });
-}
-onFocus(){
-  FocusTracker.registerListener({
-    lostFocus: this.blur,
-    hasFocus: true,
-    reference: this._refID
-  });
-}
-componentWillUnmount(){
-  FocusTracker.unregisterListener(this._refID);
-}
+    import FocusTracker from "focus-tracker";
+
+    class Example extends React.Component<{},{}>{
+    	constructor(){
+    		//set this._refID to a unique
+    	}
+    	componentDidMount(){
+    	    FocusTracker.registerListener({
+    		    lostFocus: this.blur,
+    		    hasFocus: false,
+    		    reference: this._refID //Unique ID
+    		});
+    	}
+    	blur(){
+    		//Blur focus
+    	}
+    	onFocus(){
+    		FocusTracker.registerListener({
+    		    lostFocus: this.blur,
+    		    hasFocus: true,
+    		    reference: this._refID
+    		});
+    	}
+    	componentWillUnmount(){
+    		FocusTracker.unregisterListener(this._refID);
+    	}
+    }
