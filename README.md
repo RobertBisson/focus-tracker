@@ -12,13 +12,13 @@ Focus Tracker is implemented as a Singleton.
 
     class Example extends React.Component<{},{}>{
     	constructor(){
-    		//set this._refID to a unique
+        //set this._refID to a unique
     	}
     	componentDidMount(){
-    	    FocusTracker.registerListener({
-    		    lostFocus: this.blur,
-    		    hasFocus: false,
-    		    reference: this._refID //Unique ID
+    	  FocusTracker.registerListener({
+    		  lostFocus: this.blur,
+    		  hasFocus: false,
+    		  reference: this._refID //Unique ID
     		});
     	}
     	blur(){
@@ -26,9 +26,9 @@ Focus Tracker is implemented as a Singleton.
     	}
     	onFocus(){
     		FocusTracker.registerListener({
-    		    lostFocus: this.blur,
-    		    hasFocus: true,
-    		    reference: this._refID
+    		  lostFocus: this.blur,
+    		  hasFocus: true,
+    		  reference: this._refID
     		});
     	}
     	componentWillUnmount(){
