@@ -1,6 +1,6 @@
 {
     "name": "focus-tracker",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Track focus/call blur events.",
     "main": "lib/index",
     "types": "lib/index",
