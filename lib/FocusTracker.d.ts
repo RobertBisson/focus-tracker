@@ -14,6 +14,7 @@ export interface ListenerObject {
  */
 export declare class FocusTracker {
     registeredListeners: Array<ListenerObject>;
+    getActive: () => ListenerObject | null | undefined;
     registerListener: (newListener: ListenerObject) => void;
     unregisterListener: (reference: any) => void;
     unfocusActive: () => void;

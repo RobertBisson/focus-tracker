@@ -16,7 +16,20 @@ export interface ListenerObject {
  */
 export class FocusTracker {
     registeredListeners: Array<ListenerObject> = [];
-
+    getActive = () => {
+        if (this.registeredListeners.length < 1) {
+            return;
+        } else {
+            let active = _.findIndex(this.registeredListeners, (listener: ListenerObject) => {
+                return listener.hasFocus;
+            });
+            if (active > -1) {
+                let listener = this.registeredListeners[active];
+                return listener;
+            }
+        }
+        return null;
+    };
     registerListener = (newListener: ListenerObject) => {
         if (newListener.hasFocus) {
             this.unfocusActive();
@@ -57,4 +70,4 @@ export class FocusTracker {
     };
 }
 
-export default new FocusTracker();
+export default new FocusTracker(); // Export in this format to make the Focus tracker a singleton
